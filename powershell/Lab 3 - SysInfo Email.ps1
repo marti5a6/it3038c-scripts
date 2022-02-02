@@ -15,7 +15,7 @@ $Subject = "IT308C Windows SysInfo"
 $SmtpServer = "smtp.gmail.com"
 $SmtpPort = "587"
 
-$Body = "This machine's IP address is $IP, the user is $Name, the hostname is $Comp, the BASH version is $Vexrsion, and today's date is $Date."
+$Body = "This machine's IP address is $IP, the user is $Name, the hostname is $Comp, the BASH version is $Version, and today's date is $Date."
 
 Write-Host $Body
 
