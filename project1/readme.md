@@ -5,6 +5,11 @@ In order to use this script, the python package installer (PIP) needs to be up t
 * In PowerShell, enter "python -m pip install --upgrade pip"
 * In Linux Terminal, enter "python3 -m pip install --upgrade pip"
 
+After that, install the "psutil" module if not present.
+
+* In PowerShell, enter "python -m pip install psutil"
+* In Linux Terminal, enter "python3 -m pip install psutil"
+
 Then simply run the script, named "sysinfo.py".
 
 * In PowerShell, enter "python sysinfo.py" while in the directory.
