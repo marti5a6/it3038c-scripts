@@ -1,4 +1,4 @@
-import platform
+import platform as pl
 import psutil as sys
 import os
 
@@ -16,8 +16,33 @@ while invalid:
 
         if answer == 1:
             print("~"*10, "CPU Performance", "~"*10)
-            print("CPU Usage: ", sys.cpu_percent(interval=3, percpu=False), "%")
-            print("CPU Uptime: ", sys.cpu_times(percpu=False))
+
+            cpu = pl.processor()
+            print("CPU: ", cpu)
+
+            physicalCount = sys.cpu_count(logical=False)
+            logicalCount = sys.cpu_count(logical=True)
+
+            print("CPU Core Count: Physical -", physicalCount, "cores | Logical -", logicalCount, "cores")
+
+            totalLoad = sys.cpu_percent(interval=3, percpu=False)
+            
+            print("CPU Usage:", totalLoad, end="")
+            print("%")
+
+            ctxS = sys.cpu_stats().ctx_switches
+            ints = sys.cpu_stats().interrupts
+            sInts = sys.cpu_stats().soft_interrupts
+            calls = sys.cpu_stats().syscalls
+
+            print("CPU Stats: Context Switches -", ctxS, "| Interrupts -", ints, "| Software Interrupts -", sInts, "| System Calls -", calls)
+
+            userLoad = sys.cpu_times(percpu=False).user
+            systemLoad = sys.cpu_times(percpu=False).system
+            idleLoad = sys.cpu_times(percpu=False).idle
+
+            print("CPU Uptime: User -", userLoad, "seconds | System -", systemLoad, "seconds | Idle -", idleLoad, "seconds")
+
             print("What other information do you seek? (Enter 4 to Exit)")
         elif answer == 2:
             print("~"*10, "Memory Performance", "~"*10)
@@ -37,4 +62,3 @@ while invalid:
     except:
         print("Enter a valid option (1-4).")
         invalid = True
-
