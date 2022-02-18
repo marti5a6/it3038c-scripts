@@ -1,6 +1,4 @@
-import platform as pl
 import psutil as sys
-import os
 
 invalid = True
 
@@ -37,20 +35,39 @@ while invalid:
 
             print("CPU Stats: Context Switches -", ctxS, "| Interrupts -", ints, "| Software Interrupts -", sInts, "| System Calls -", calls)
 
-            userLoad = sys.cpu_times(percpu=False).user
-            systemLoad = sys.cpu_times(percpu=False).system
-            idleLoad = sys.cpu_times(percpu=False).idle
+            userLoad = round((sys.cpu_times(percpu=False).user / 60), 2)
+            systemLoad = round((sys.cpu_times(percpu=False).system / 60), 2)
+            idleLoad = round((sys.cpu_times(percpu=False).idle / 60), 2)
 
-            print("CPU Uptime: User -", userLoad, "seconds | System -", systemLoad, "seconds | Idle -", idleLoad, "seconds")
+            print("CPU Uptime: User -", userLoad, "minutes | System -", systemLoad, "minutes | Idle -", idleLoad, "minutes")
 
             print("What other information do you seek? (Enter 4 to Exit)")
         elif answer == 2:
             print("~"*10, "Memory Performance", "~"*10)
+
+            memTotal = round((sys.virtual_memory().total / 1048576), 2)
+            memAvail = round((sys.virtual_memory().available / 1048576), 2)
+            memUsed = round((sys.virtual_memory().used / 1048576), 2)
+            memFree = round((sys.virtual_memory().free / 1048576), 2)
+
+            print("Memory: Total -", memTotal, "MB | Available -", memAvail, "MB | Used -", memUsed, "MB | Free -", memFree, "MB")
+
+            swapTotal = round((sys.swap_memory().total / 1048576), 2)
+            swapUsed = round((sys.swap_memory().used / 1048576), 2)
+            swapFree = round((sys.swap_memory().free / 1048576), 2)
+
+            print("Swap Memory: Total -", swapTotal, "MB | Used -", swapUsed, "MB | Free -", swapFree, "MB")
             
             print("What other information do you seek? (Enter 4 to Exit)")
         elif answer == 3:
             print("~"*10, "Disk Utilization", "~"*10)
             
+            diskTotal = round((sys.disk_usage("/").total / 1048576), 2)
+            diskUsed = round((sys.disk_usage("/").used / 1048576), 2)
+            diskFree = round((sys.disk_usage("/").free / 1048576), 2)
+
+            print("Disk: Total -", diskTotal, "MB | Used -", diskUsed, "MB | Free -", diskFree, "MB")
+
             print("What other information do you seek? (Enter 4 to Exit)")
         elif answer == 4:
             print("~"*10, "Shutting down...", "~"*10)
@@ -62,3 +79,4 @@ while invalid:
     except:
         print("Enter a valid option (1-4).")
         invalid = True
+
