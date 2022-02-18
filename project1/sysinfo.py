@@ -1,4 +1,5 @@
 import psutil as sys
+import platform as pl
 
 invalid = True
 
@@ -16,7 +17,7 @@ while invalid:
             print("~"*10, "CPU Performance", "~"*10)
 
             cpu = pl.processor()
-            print("CPU: ", cpu)
+            print("CPU:", cpu)
 
             physicalCount = sys.cpu_count(logical=False)
             logicalCount = sys.cpu_count(logical=True)
