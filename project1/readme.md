@@ -1,3 +1,7 @@
+# Script Description
+
+Essentially, sysinfo.py mirrors the capabilities of task manager, without a GUI. The script allows the user to pick between 3 types of system information, or quit.
+
 # Installation Instructions
 
 In order to use this script, the python package installer (PIP) needs to be up to date.
