@@ -25,7 +25,7 @@ while invalid:
 
             print("CPU Core Count: Physical -", physicalCount, "cores | Logical -", logicalCount, "cores")
 
-            totalLoad = sys.cpu_percent(interval=3, percpu=False)
+            totalLoad = sys.cpu_percent(interval=0.1, percpu=False)
             
             print("CPU Usage:", totalLoad, end="")
             print("%")
