@@ -3,7 +3,7 @@ import platform as pl
 
 invalid = True
 
-print("~"*10, "Welcome, what information do you seek?", "~"*10)
+print("~"*20, "Welcome, what information do you seek?", "~"*20)
 print("[1. CPU Performance]")
 print("[2. Memory Performance]")
 print("[3. Disk Utilization]")
@@ -14,7 +14,7 @@ while invalid:
         answer = int(input())
 
         if answer == 1:
-            print("~"*10, "CPU Performance", "~"*10)
+            print("~"*20, "CPU Performance", "~"*20)
 
             cpu = pl.processor()
             print("CPU:", cpu)
@@ -42,9 +42,9 @@ while invalid:
 
             print("CPU Uptime: User -", userLoad, "minutes | System -", systemLoad, "minutes | Idle -", idleLoad, "minutes")
 
-            print("What other information do you seek? (Enter 4 to Exit)")
+            print("="*10, "What other information do you seek? (Enter 4 to Exit)", "="*10)
         elif answer == 2:
-            print("~"*10, "Memory Performance", "~"*10)
+            print("~"*20, "Memory Performance", "~"*20)
 
             memTotal = round((sys.virtual_memory().total / 1048576), 2)
             memAvail = round((sys.virtual_memory().available / 1048576), 2)
@@ -59,9 +59,9 @@ while invalid:
 
             print("Swap Memory: Total -", swapTotal, "MB | Used -", swapUsed, "MB | Free -", swapFree, "MB")
             
-            print("What other information do you seek? (Enter 4 to Exit)")
+            print("="*10, "What other information do you seek? (Enter 4 to Exit)", "="*10)
         elif answer == 3:
-            print("~"*10, "Disk Utilization", "~"*10)
+            print("~"*20, "Disk Utilization", "~"*20)
             
             diskTotal = round((sys.disk_usage("/").total / 1048576), 2)
             diskUsed = round((sys.disk_usage("/").used / 1048576), 2)
@@ -69,15 +69,15 @@ while invalid:
 
             print("Disk: Total -", diskTotal, "MB | Used -", diskUsed, "MB | Free -", diskFree, "MB")
 
-            print("What other information do you seek? (Enter 4 to Exit)")
+            print("="*10, "What other information do you seek? (Enter 4 to Exit)", "="*10)
         elif answer == 4:
-            print("~"*10, "Shutting down...", "~"*10)
+            print("~"*20, "Shutting down...", "~"*20)
             invalid = False
         else:
-            print("Enter a valid option (1-4).")
+            print("[Enter a valid option (1-4).]")
             invalid = True
 
     except:
-        print("Enter a valid option (1-4).")
+        print("[Enter a valid option (1-4).]")
         invalid = True
 
