@@ -3,7 +3,10 @@ var path = require("path");
 var hello = "Hello from Node JS variable!";
 console.log(hello);
 
-console.log("Using PATH module:");
-console.log('Hello from file ${path.basename(__filename)}');
+var fn = path.basename(__filename)
+var args = process.argv
 
-console.log('Process args: ${process.argv}');
+console.log("Using PATH module:");
+console.log("Hello from file " + fn);
+
+console.log("Process args: " + args);
