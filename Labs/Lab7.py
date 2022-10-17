@@ -77,11 +77,9 @@ while valid:
 
                                 if userTag.casefold() == "quit".casefold():
                                     print("Exiting...")
-                                    time.sleep(2)
                                     tagIsValid = True
                                 elif userTag.casefold() == "exit".casefold():
                                     print("Exiting...")
-                                    time.sleep(2)
                                     tagIsValid = True
                                 else:
                                     tagSelections = (soup.findAll(userTag))
@@ -111,11 +109,9 @@ while valid:
 
                                 if userID.casefold() == "quit".casefold():
                                     print("Exiting...")
-                                    time.sleep(2)
                                     idIsValid = True
                                 elif userID.casefold() == "exit".casefold():
                                     print("Exiting...")
-                                    time.sleep(2)
                                     idIsValid = True
                                 else:
                                     # idSelections = soup.select("#" + userID)
