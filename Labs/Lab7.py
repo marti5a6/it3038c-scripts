@@ -10,6 +10,7 @@ def continueURL():
             response = str(input("Response: "))
 
             if response.casefold() == "No".casefold():
+                global cont
                 cont = False
                 accepted = True
             elif response.casefold() == "Yes".casefold():
@@ -28,11 +29,11 @@ while valid:
     try:
         URL = 'https://' + str(input("URL: "))
 
-        if URL == "https://quit":
+        if URL.casefold() == "https://quit".casefold():
             print("Shutting down...")
             time.sleep(2)
             valid = False
-        elif URL == "https://exit":
+        elif URL.casefold() == "https://exit".casefold():
             print("Shutting down...")
             time.sleep(2)
             valid = False
@@ -67,7 +68,29 @@ while valid:
                         page = req.get(URL)
                         soup = bs(page.content, "html.parser")
 
-                        print(soup.p.get_text())
+                        tagIsValid = False
+                        while not tagIsValid:
+                            print("=" * 15 + " Enter a tag to parse at this URL [a, p, etc.]: " + "=" * 15)
+                            print("=" * 15 + " Or type quit to exit. " + "=" * 15)
+                            try:
+                                userTag = str(input("Tag: "))
+
+                                if userTag.casefold() == "quit".casefold():
+                                    print("Exiting...")
+                                    time.sleep(2)
+                                    tagIsValid = True
+                                elif userTag.casefold() == "exit".casefold():
+                                    print("Exiting...")
+                                    time.sleep(2)
+                                    tagIsValid = True
+                                else:
+                                    tagSelections = (soup.findAll(userTag))
+                                    for tagSelection in tagSelections:
+                                        print(tagSelection.get_text())
+
+                                    tagIsValid = True
+                            except:
+                                print("Invalid. Enter a tag in use.")
 
                         time.sleep(2)
 
@@ -81,12 +104,28 @@ while valid:
 
                         idIsValid = False
                         while not idIsValid:
+                            print("=" * 15 + " Enter an id in use at this URL [Case-Sensitive]: " + "=" * 15)
+                            print("=" * 15 + " Or type quit to exit. " + "=" * 15)
                             try:
-                                print("Enter an id in use at this URL: ")
-                                id = str(input("ID: "))
+                                userID = str(input("ID: "))
 
-                                soup.id.get_text()
-
+                                if userID.casefold() == "quit".casefold():
+                                    print("Exiting...")
+                                    time.sleep(2)
+                                    idIsValid = True
+                                elif userID.casefold() == "exit".casefold():
+                                    print("Exiting...")
+                                    time.sleep(2)
+                                    idIsValid = True
+                                else:
+                                    # idSelections = soup.select("#" + userID)
+                                    idSelections = soup.find_all(id = userID)
+                                    for idSelection in idSelections:
+                                        if idSelection.get_text() == "":
+                                            print("ID was found, but there is no text inside.")
+                                        else:
+                                            print(idSelection.get_text())
+                                            idIsValid = True
                             except:
                                 print("Invalid. Enter an id in use.")
 
