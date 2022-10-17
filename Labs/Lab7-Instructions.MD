@@ -1,6 +1,6 @@
 # Lab 7 Instructions
 
-This python script uses BeautifulSoup and Requests to scrape the web, based on the user input. There are 3 outputs possible including full scrape, \<p> select, and text count. 
+This python script uses BeautifulSoup and Requests to scrape the web, based on the user input. There are 3 outputs possible including full scrape, tag select, and id select. 
 
 
 ## Instructions
