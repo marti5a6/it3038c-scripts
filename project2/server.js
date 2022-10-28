@@ -6,8 +6,11 @@ const path = require("path");
 const express = require("express");
 
 // Add /public directory to static webpage
-const dir = path.join(__dirname, 'public');
+const dir = path.join(__dirname, "public");
 const app = new express();
+
+// Add logic to endpoints
+
 
 // Start server using above settings
 app.use(express.static(dir));
