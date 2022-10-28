@@ -26,7 +26,6 @@ app.get("/", (req, res) => {
 app.get("/sysinfo", (req, res) => {
     // Logic
     myHostname = os.hostname();
-    ipAddr = ip.address();
     totalMem = (os.totalmem() / (1024 * 1024)).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     freeMem = (os.freemem() / (1024 * 1024)).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     cpuCount = os.cpus().length;
@@ -44,21 +43,8 @@ app.get("/sysinfo", (req, res) => {
     res.render(__dirname + "/views/sysinfo", {
         title: "System Info",
         header: "System Information",
-        // sysInfoText: `
-        // Hostname: ${myHostname}
-        // <br>
-        // IP: ${ipAddr}
-        // <br>
-        // Uptime: ${days} day(s), ${hours} hours(s), ${minutes} minute(s), and ${seconds} second(s).
-        // <br>
-        // Total Memory: ${totalMem} MB
-        // <br>
-        // Free Memory: ${freeMem} MB
-        // <br>
-        // Number of CPUs: ${cpuCount}
-        // `
+
         hostname: `Hostname: ${myHostname}`,
-        ip: `IP Address: ${ipAddr}`,
         uptime: `${days} day(s), ${hours} hours(s), ${minutes} minute(s), and ${seconds} second(s).`,
         totalMemory: `Total Memory: ${totalMem} MB`,
         freeMemory: `Free Memory: ${freeMem} MB`,
@@ -68,11 +54,26 @@ app.get("/sysinfo", (req, res) => {
 
 // Map /netinfo endpoint
 app.get("/netinfo", (req, res) => {
+    // Logic
+    app.set("trust proxy", true);
+    sysIpAddr = ip.address();
+    conIpAddr = req.ip;
+
+    if (ip.isV4Format) {
+        ipFormat = "IPV4";
+    }
+    else if (ip.isV6Format) {
+        ipFormat = "IPV6";
+    }
+
     // Passing variables to template
     res.render(__dirname + "/views/netinfo", {
         title: "Network Info",
         header: "Network Information",
-        netInfoText: "Here's some information..."
+        
+        sysIp: `Server Address: ${sysIpAddr}`,
+        conIp: `Connected From: ${conIpAddr}`,
+        format: `IP Format: ${ipFormat}`
     });
 });
 
@@ -87,6 +88,6 @@ app.get("*", (req, res) => {
 });
 
 // Start server
-app.listen(3000, function() {
+app.listen(3000, '0.0.0.0', function() {
     console.log("Server online at port 3000");
 });

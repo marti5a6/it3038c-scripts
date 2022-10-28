@@ -35,8 +35,7 @@ body {
 }
 
 .card {
-    transition: transform ease-out 500ms;
-    transition: box-shadow ease-out 250ms;
+    transition: transform ease-out 500ms, box-shadow ease-out 1s;
     min-height: 20vh;
 }
 
