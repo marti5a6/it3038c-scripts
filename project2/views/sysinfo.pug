@@ -1,0 +1,14 @@
+extends default
+block content
+
+    // Page Container
+    .parent
+        #bodyContainer.container.res.cen
+            h2#header.pb-2.border-bottom= header
+            #sysInfoText
+            p= hostname
+            p= ip
+            p= uptime
+            p= totalMemory
+            p= freeMemory
+            p= cpuTotal

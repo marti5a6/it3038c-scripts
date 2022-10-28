@@ -1,0 +1,36 @@
+extends default
+block content
+
+    // Page Container
+    .parent
+        #bodyContainer.container.res.cen
+            h2#header.pb-2.border-bottom= header
+            // Card Container
+            .row.row-cols-1.row-cols-lg-3.align-items-stretch.g-4.py-5
+                // Card One
+                .col
+                    #cardOne.card.card-cover.h-100.overflow-hidden.text-bg-dark.rounded-4.shadow-lg
+                        .d-flex.flex-column.h-100.p-5.pb-3.text-white.text-shadow-1
+                            h3.pt-5.mt-5.mb-4.display-6.lh-1.fw-bold System Info
+                            ul.d-flex.list-unstyled.mt-auto
+                                li.me-auto
+                                    span.material-symbols-outlined(width='32', height='32', alt='settings') terminal
+                            a.stretched-link.cardLink(href='/sysinfo')
+                // Card Two
+                .col
+                    #cardTwo.card.card-cover.h-100.overflow-hidden.text-bg-dark.rounded-4.shadow-lg
+                        .d-flex.flex-column.h-100.p-5.pb-3.text-white.text-shadow-1
+                            h3.pt-5.mt-5.mb-4.display-6.lh-1.fw-bold Network Info
+                            ul.d-flex.list-unstyled.mt-auto
+                                li.me-auto
+                                    span.material-symbols-outlined(width='32', height='32', alt='settings') wifi
+                            a.stretched-link.cardLink(href='/netinfo')
+                // Card Three
+                .col
+                    #cardThree.card.card-cover.h-100.overflow-hidden.text-bg-dark.rounded-4.shadow-lg
+                        .d-flex.flex-column.h-100.p-5.pb-3.text-white.text-shadow-1
+                            h3.pt-5.mt-5.mb-4.display-6.lh-1.fw-bold Settings
+                            ul.d-flex.list-unstyled.mt-auto
+                                li.me-auto
+                                    span.material-symbols-outlined(width='32', height='32', alt='settings') settings
+                            a.stretched-link.cardLink(href='/settings')

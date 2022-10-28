@@ -1,0 +1,56 @@
+body {
+    background-image: linear-gradient(135deg, #283c86, #45a247);
+    background-attachment: fixed;
+    font-family: "Kdam Thmor Pro", sans-serif;
+    color: white;
+}
+
+#bodyContainer {
+    padding: 50px;
+}
+
+.parent {
+    min-height: 100vh;
+}
+
+.res {
+    max-height:100%;
+}
+
+.cen {
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+.cardLink {
+    text-decoration: none;
+}
+
+.card {
+    transition: transform ease-out 500ms;
+    transition: box-shadow ease-out 250ms;
+}
+
+.card:hover {
+    border: 2px solid white;
+    transform: scale(105%);
+    transition: transform 500ms;
+    box-shadow: 0px 0px 25px 0px white !important;
+}
+
+#cardOne {
+    background-image: url("/images/mobo.jpg");
+    background-blend-mode: multiply;
+}
+
+#cardTwo {
+    background-image: url("/images/net.jpg");
+    background-blend-mode: multiply;
+}
+
+#cardThree {
+    background-image: url("/images/settings.jpg");
+    background-blend-mode: multiply;
+}
