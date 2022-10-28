@@ -30,6 +30,7 @@ body {
 
 .card {
     transition: transform ease-out 500ms;
+    transition: box-shadow ease-out 250ms;
 }
 
 .card:hover {
@@ -42,7 +43,6 @@ body {
 #cardOne {
     background-image: url("/images/mobo.jpg");
     background-blend-mode: multiply;
-    backdrop-filter: blur(5px);
 }
 
 #cardTwo {
