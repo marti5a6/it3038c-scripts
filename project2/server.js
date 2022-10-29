@@ -43,9 +43,9 @@ app.get("/sysinfo", (req, res) => {
     res.render(__dirname + "/views/sysinfo", {
         title: "System Info",
         header: "System Information",
-
         hostname: `Hostname: ${myHostname}`,
-        uptime: `${days} day(s), ${hours} hours(s), ${minutes} minute(s), and ${seconds} second(s).`,
+        uptime: `Uptime: ${days} day(s), ${hours} hours(s), ${minutes} minute(s), and ${seconds} second(s).`,
+
         totalMemory: `Total Memory: ${totalMem} MB`,
         freeMemory: `Free Memory: ${freeMem} MB`,
         cpuTotal: `CPU Count: ${cpuCount} threads (${cpuCount / 2} cores).`
@@ -55,6 +55,17 @@ app.get("/sysinfo", (req, res) => {
 // Map /netinfo endpoint
 app.get("/netinfo", (req, res) => {
     // Logic
+    myHostname = os.hostname();
+    
+    seconds = os.uptime();
+    days = Math.floor(seconds / (3600 * 24));
+    seconds -= (days * 3600 * 24);
+    hours = Math.floor(seconds / 3600);
+    seconds -= (hours * 3600);
+    minutes = Math.floor(seconds / 60);
+    seconds -= (minutes * 60);
+    seconds = seconds.toFixed(2);
+
     app.set("trust proxy", true);
     sysIpAddr = ip.address();
     conIpAddr = req.ip;
@@ -70,6 +81,8 @@ app.get("/netinfo", (req, res) => {
     res.render(__dirname + "/views/netinfo", {
         title: "Network Info",
         header: "Network Information",
+        hostname: `Hostname: ${myHostname}`,
+        uptime: `Uptime: ${days} day(s), ${hours} hours(s), ${minutes} minute(s), and ${seconds} second(s).`,
         
         sysIp: `Server Address: ${sysIpAddr}`,
         conIp: `Connected From: ${conIpAddr}`,
