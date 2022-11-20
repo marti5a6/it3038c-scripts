@@ -1,0 +1,26 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    background-color: #FFDFD3 !important;
+}
+
+
+#heading {
+    padding: 50px 10% 25px 10%;
+    text-align: center;
+}
+
+#welcomeText {
+    text-align: center;
+    padding: 25px 10% 25px 10%;
+    font-size: 1.5em;
+}
+
+#nameForm {
+    padding: 50px;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 500px;
+}

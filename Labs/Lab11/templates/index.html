@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+<p>
+    <form action="/welcome" method="POST" id="nameForm">
+        <div class="mb-3">
+            <label class="form-label" for="name">What Is Your Name?</label>
+            <input class="form-control" type="text" id="name" name="myName">
+        </div>
+        <button class="w-100 btn btn-primary" type="submit">Submit</button>
+    </form>
+</p>
+{% endblock %}
