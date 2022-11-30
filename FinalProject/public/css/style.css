@@ -1,0 +1,56 @@
+/* Styles for entire page */
+* {
+    font-family: 'Anybody', sans-serif;
+    color: white;
+    text-align: center;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+}
+
+/* Element-Specific Styles */
+#contentBox {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.titleText {
+    font-size: calc(25px + 3vw);
+    text-shadow:
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+}
+
+.subtitleText {
+    font-size: calc(15px + 1vw);
+    text-shadow:
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+}
+
+#onlineText {
+    color: green;
+}
+
+#errorText {
+    color:red;
+}
+
+#apiButton {
+    width: 250px;
+    border: 2px solid black;
+}
+
+#errorImg {
+    max-width: 100%;
+    border: 2px solid white;
+}
