@@ -25,7 +25,7 @@ def continueSearch():
 
     # Loop while the response is invalid
     while not continueValid:
-        print('Would you like to search again? [Y/N] ')
+        print('Would you like to search again? ' + color.GREEN + color.BOLD + '[Y/N]' + color.END)
         continueAnswer = input()
 
         # If user enters y, continue operation
@@ -42,7 +42,7 @@ def continueSearch():
 
         # If user enters anything else, restart loop
         else:
-            print(color.RED + color.BOLD + 'Invalid response. ' + color.END)
+            print(color.YELLOW + color.BOLD + 'Invalid response. ' + color.END)
             continueValid = False
 
 # Default valid boolean to False
@@ -88,13 +88,13 @@ while not valid:
                 print('=' * columns)
 
                 print(color.RED + color.BOLD + 'Title: ' + color.END + randomMovie['Series_Title'] 
-                + ', ' + color.RED + color.BOLD + 'Released: ' + color.END + str(randomMovie['Released_Year']))
+                + ' | ' + color.RED + color.BOLD + 'Released: ' + color.END + str(randomMovie['Released_Year']))
 
                 print(color.GREEN + color.BOLD + 'Description: ' + color.END + randomMovie['Overview'])
                 
                 print(color.BLUE + color.BOLD + 'Length: ' + color.END + str(randomMovie['Runtime']) 
-                + ', ' + color.BLUE + color.BOLD + 'Genre: ' + color.END + randomMovie['Genre'] 
-                + ', ' + color.BLUE + color.BOLD + 'Rating: ' + color.END + str(randomMovie['IMDB_Rating']))
+                + ' | ' + color.BLUE + color.BOLD + 'Genre: ' + color.END + randomMovie['Genre'] 
+                + ' | ' + color.BLUE + color.BOLD + 'Rating: ' + color.END + str(randomMovie['IMDB_Rating']))
 
                 print('=' * columns)
 
