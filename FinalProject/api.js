@@ -23,11 +23,10 @@ app.get("/api", (req, res) => {
 
 // Map 404 endpoint
 app.get("*", (req, res) => {
-    // Passing variables to template
     res.status(404).sendFile(__dirname + "/views/error.html");
 });
 
 // Start server
 app.listen(3000, '0.0.0.0', function() {
-    console.log("Server online at port 3000");
+    console.log("Server online at port 3000...");
 });
